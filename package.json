@@ -1,16 +1,21 @@
 {
-  "name": "Natively",
+  "name": "FitCutie",
   "version": "1.0.0",
   "main": "index.ts",
-  "scripts": {
-    "dev": "EXPO_NO_TELEMETRY=1 expo start --tunnel",
-    "android": "EXPO_NO_TELEMETRY=1 expo start --android",
-    "ios": "EXPO_NO_TELEMETRY=1 expo start --ios",
-    "web": "EXPO_NO_TELEMETRY=1 expo start --web",
-    "build:web": "expo export -p web && npx workbox generateSW workbox-config.js",
-    "build:android": "expo prebuild -p android",
-    "lint": "eslint ."
-  },
+  "homepage": "https://galayba-stack.github.io/fitCutie",
+"scripts": {
+  "dev": "EXPO_NO_TELEMETRY=1 expo start --tunnel",
+  "android": "EXPO_NO_TELEMETRY=1 expo start --android",
+  "ios": "EXPO_NO_TELEMETRY=1 expo start --ios",
+  "web": "EXPO_NO_TELEMETRY=1 expo start --web",
+  "build:web": "expo export -p web && npx workbox generateSW workbox-config.js",
+  "build": "npm run build:web",
+  "build:android": "expo prebuild -p android",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  "lint": "eslint ."
+}
+,
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/runtime": "^7.26.9",
@@ -68,6 +73,7 @@
     "eslint-config-expo": "~10.0.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.4",
+    "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
     "typescript": "^5.8.3",
     "webpack-cli": "^6.0.1"
